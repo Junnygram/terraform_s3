@@ -44,7 +44,24 @@ unzip oxer.zip
 
 Refer to the official documentation on [AWS Provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#profile) to understand how to configure AWS in Terraform.
 
-### Step 7: Initialize Terraform
+### Step 7: Create an IAM User and Access Key
+
+1. Log in to the AWS Management Console.
+2. Create a new IAM user with programmatic access.
+3. Attach the necessary policies (e.g., `AmazonS3FullAccess`).
+4. Generate and download the access key and secret key.
+
+### Step 8: Configure AWS CLI with IAM User Credentials
+
+Use the access key and secret key to configure the AWS CLI:
+
+```sh
+aws configure
+```
+
+Provide the access key ID, secret access key, region, and output format when prompted.
+
+### Step 9: Initialize Terraform
 
 Initialize the Terraform working directory:
 
@@ -52,7 +69,7 @@ Initialize the Terraform working directory:
 terraform init
 ```
 
-### Step 8: Build and Apply Changes
+### Step 10: Build and Apply Changes
 
 Apply the infrastructure changes:
 
@@ -60,7 +77,7 @@ Apply the infrastructure changes:
 terraform apply -auto-approve
 ```
 
-### Step 9: Destroy Changes
+### Step 11: Destroy Changes
 
 Destroy the infrastructure changes:
 
@@ -68,7 +85,7 @@ Destroy the infrastructure changes:
 terraform destroy -auto-approve
 ```
 
-### Step 10: Configure S3 Bucket for Public Ownership
+### Step 12: Configure S3 Bucket for Public Ownership
 
 1. [S3 Bucket Ownership Controls](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_ownership_controls)
 2. [S3 Bucket Public Access Block](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_public_access_block)
@@ -84,16 +101,14 @@ resource "aws_s3_object" "item" {
   acl          = "public-read"
   content_type = "application/javascript"
 }
-
 ```
 
-### Step 11: Configure S3 Bucket Website
+### Step 13: Configure S3 Bucket Website
 
 Configure the S3 bucket for website hosting:
-
 [S3 Bucket Website Configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_website_configuration)
 
-### Step 12: Confirm Changes in Your AWS Account
+### Step 14: Confirm Changes in Your AWS Account
 
 Log in to your AWS account and verify the changes made to the S3 bucket and other resources. You should see all objects there and create an output endpoint:
 
@@ -104,7 +119,3 @@ output "website_endpoint" {
 ```
 
 You can now access your static app through this endpoint.
-
----
-
-By following these steps, you will successfully install AWS CLI and Terraform, download and set up a project template, configure an S3 bucket for public access, and set it up for website hosting. Make sure to refer to the provided documentation links for detailed instructions and additional options.
