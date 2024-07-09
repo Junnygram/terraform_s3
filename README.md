@@ -79,11 +79,12 @@ If you have more items in the unzipped file, add them here in your Terraform con
 ```hcl
 resource "aws_s3_object" "item" {
   bucket       = aws_s3_bucket.mybucket.id
-  key          = "itemName"
-  source       = "itemNamewithExtension"
+  key          = "itemName.js"           # Update with your JavaScript file name
+  source       = "path/to/itemName.js"   # Update with the path to your JavaScript file
   acl          = "public-read"
-  content_type = "text/html"
+  content_type = "application/javascript"
 }
+
 ```
 
 ### Step 11: Configure S3 Bucket Website
