@@ -28,8 +28,6 @@ terraform -v
 
 terraform init
 
-# TERRFORM PLAN
-
 # Step 7: Build and apply changes
 
 terraform apply -auto-approve
@@ -51,3 +49,11 @@ https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_b
 # Step 10: Make Acl public
 
 https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_acl
+
+# Step 7: Build and apply changes
+
+to confirm check your aws acct
+
+# Step 10: bucket configuration and upload bucket
+
+https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_website_configuration
