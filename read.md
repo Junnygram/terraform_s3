@@ -39,3 +39,15 @@ terraform apply -auto-approve
 terraform destroy -auto-approve
 
 Make sure to follow the installation guides and documentation provided in the links for detailed instructions on setting up AWS CLI and Terraform. The `terraform init` command initializes the Terraform working directory, and the terraform apply and `terraform destroy` commands apply and destroy the infrastructure changes respectively.
+
+# Step 8: public ownership so we can make changes to the bucket
+
+https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_ownership_controls
+
+# Step 9: public ownership so we can make changes to the bucket
+
+https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_public_access_block
+
+# Step 10: Make Acl public
+
+https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_acl
