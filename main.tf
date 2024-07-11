@@ -1,7 +1,7 @@
 
 # Define an S3 bucket
 resource "aws_s3_bucket" "mybucket" {
-  bucket = var.bucketName  # The name of the bucket is taken from the variable bucketName
+  bucket = var.bucketname  # The name of the bucket is taken from the variable bucketName
 }
 
 # Set ownership controls for the bucket
@@ -46,8 +46,8 @@ resource "aws_s3_object" "index" {
 # Upload a CSS file to the bucket
 resource "aws_s3_object" "css" {
   bucket = aws_s3_bucket.mybucket.id  # Referencing the ID of the bucket defined above
-  key = "style.css"  # The name of the file in the bucket
-  source =  "style.css"  # The local path to the file being uploaded
+  key = "styles.css"  # The name of the file in the bucket
+  source =  "styles.css"  # The local path to the file being uploaded
   acl = "public-read"  # Set the ACL to public-read for this object
   content_type = "text/css"  # Specify the content type of the file
 }
